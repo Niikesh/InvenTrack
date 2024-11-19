@@ -7,23 +7,25 @@
           Forecast and Replenishment for {{ product.name }}
         </h4>
         <a
-        href="{% url 'render_chart' %}"
-        class="btn btn-primary btn-sm rounded-0 bg-gradient px-3"
-        id="chart"
-      >
-        Chart
-      </a>
+          href="{% url 'render_chart' %}"
+          class="btn btn-primary btn-sm rounded-0 bg-gradient px-3"
+          id="chart"
+        >
+          Chart
+        </a>
       </div>
     </div>
     <div class="card-body">
       <div class="container-fluid">
         <table class="table table-bordered" id="product-list">
           <colgroup>
-            <col width="50%" />
-            <col width="50%" />
+            <col width="30%" />
+            <col width="35%" />
+            <col width="35%" />
           </colgroup>
           <thead>
             <tr class="bg-gradient bg-primary bg-opacity-50 text-light">
+              <th class="px-2 py-2 text-center">Current stocks</th>
               <th class="px-2 py-2 text-center">
                 Forecasted Demand (next 30 days)
               </th>
@@ -33,6 +35,9 @@
           <tbody>
             <tr>
               <td class="px-2 py-1 align-middle text-center">
+                {{ product.count_inventory }}
+              </td>
+              <td class="px-2 py-1 align-middle text-center">
                 {{ forecasted_demand }}
               </td>
               <td class="px-2 py-1 align-middle text-center">
@@ -41,7 +46,6 @@
             </tr>
           </tbody>
         </table>
-
       </div>
     </div>
   </div>
