@@ -304,6 +304,8 @@ def inv_history(request, pk=None):
         "dates": [item['invoice__date_created__date'].strftime("%Y-%m-%d") for item in sales_historic_data],
         "quantities": [item['quantity'] for item in sales_historic_data],
     }
+
+    print("sales_data:", sales_chart_data)
     
     # Save data to CSV
     save_sales_data_to_csv(sales_chart_data)
@@ -585,6 +587,7 @@ def inventory_predict(request, product_id):
         'forecasted_demand': forecasted_demand,
         'replenishment_needed': replenishment_needed,
     }
+    print(context)
     return render(request, 'inventory_predict.html', context)
 
 

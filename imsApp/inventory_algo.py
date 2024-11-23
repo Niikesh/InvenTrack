@@ -44,7 +44,7 @@ def forecast_demand(product, days=30):
     predicted_demand = regressor.predict(future_dates)
     
     # Sum the predicted demand for the given forecast period
-    return sum(predicted_demand)
+    return max(0,sum(predicted_demand))
 
 
 #inventory repleshment algo
@@ -72,4 +72,3 @@ def calculate_replenishment(product):
     else:
         return 0  # No replenishment needed
 
-    
